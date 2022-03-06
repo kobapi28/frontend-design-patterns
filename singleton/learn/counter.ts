@@ -28,6 +28,7 @@ class Counter {
   }
 }
 
-const counter = new Counter();
-const counter2 = new Counter();
+// 利用者側から変更できなくする
+const counter = Object.freeze(new Counter());
+export default counter;
 
