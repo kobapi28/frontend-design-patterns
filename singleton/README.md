@@ -44,6 +44,8 @@ console.log(blueButton.getCount());
 ```
 更新されるのは`Counter`クラスの`counter`プロパティなので、同じ値がそれぞれのインスタンスで共有される形になる。
 
+commit: [a28107b2764221cba4e66f7b650a9cd83452a300](https://github.com/shoma3571/frontend-design-patterns/commit/a28107b2764221cba4e66f7b650a9cd83452a300)
+
 
 ## 利点と欠点
 - インスタンス化を1度に限定できるので、使用されるメモリ容量を大幅に削減できる。
@@ -51,3 +53,21 @@ console.log(blueButton.getCount());
 しかし、実はシングルトンはアンチパターンと考えられている...
 
 上でクラスを作って実装した動作は通常のオブジェクトを使って実装可能。
+```ts
+let count = 0;
+
+const counter = {
+  increment () {
+    return ++count;
+  },
+  decrement () {
+    return --count;
+  },
+  getCount () {
+    return count;
+  }
+}
+
+Object.freeze(counter);
+export default counter;
+```

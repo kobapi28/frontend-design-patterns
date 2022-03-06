@@ -1,9 +1,9 @@
-import counter from "./counter";
+import counter from "./normalObject";
 
-const redButton = counter.getInstance();
+const redButton = counter;
 redButton.increment();
 
-const blueButton = counter.getInstance();
+const blueButton = counter;
 blueButton.increment();
 
 console.log(redButton.getCount());
