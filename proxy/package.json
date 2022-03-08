@@ -1,0 +1,9 @@
+{
+  "name": "proxy",
+  "version": "1.0.0",
+  "author": "shoma3571",
+  "license": "MIT",
+  "dependencies": {
+    "typescript": "^4.6.2"
+  }
+}
