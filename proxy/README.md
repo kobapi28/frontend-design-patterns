@@ -79,3 +79,27 @@ You need to provide a valid name.
 Sorry, you can only pass numeric values for age.
 Hmm.. this property doesn't seem to exist on the target object
 ```
+
+### Reflect
+JavaScriptには`Reflect`という組み込みオブジェクトがあり、これによりプロキシを扱う際にターゲットオブジェクトを簡単に操作できるようになる。
+`obj[prop]`によってアクセスするかわりに、`Reflect.get()`や`Reflect.set()`を使うことができる。
+
+```ts
+const object1 = {
+  x: 1
+}
+
+console.log(Reflect.get(object1, 'z'))
+// -> undefined
+```
+
+これを使って、`person.ts`を書き換える
+
+```bash
+ > node learn/person.js
+You need to provide a valid name.
+Sorry, you can only pass numeric values for age.
+Hmm.. this property doesn't seem to exist on the target object
+```
+
+書き換えても同じになることが確認できた！

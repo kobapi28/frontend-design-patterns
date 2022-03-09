@@ -12,10 +12,10 @@ const person: Person = {
 
 const personProxy = new Proxy(person, {
   get: (obj: Person, prop) => {
-    if (!obj[prop]) {
+    if (!Reflect.get(obj, prop)) {
       console.log( `Hmm.. this property doesn't seem to exist on the target object`);
     } else {
-      console.log(`The value of ${String(prop)} is ${obj[prop]}`);
+      console.log(`The value of ${String(prop)} is ${Reflect.get(obj, prop)}`);
     }
   },
   set: (obj: Person, prop, value: string | number) => {
@@ -26,8 +26,8 @@ const personProxy = new Proxy(person, {
       console.log(`You need to provide a valid name.`);
       return false;
     } else {
-      console.log(`Changed ${String(prop)} from ${obj[prop]} to ${value}`);
-      obj[prop] = value;
+      console.log(`Changed ${String(prop)} from ${Reflect.get(obj, prop)} to ${value}`);
+      Reflect.set(obj, prop, value);
       return true;
     }
   }
