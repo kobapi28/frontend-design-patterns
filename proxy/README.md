@@ -84,6 +84,8 @@ Hmm.. this property doesn't seem to exist on the target object
 JavaScriptには`Reflect`という組み込みオブジェクトがあり、これによりプロキシを扱う際にターゲットオブジェクトを簡単に操作できるようになる。
 `obj[prop]`によってアクセスするかわりに、`Reflect.get()`や`Reflect.set()`を使うことができる。
 
+https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Reflect
+
 ```ts
 const object1 = {
   x: 1
@@ -103,3 +105,8 @@ Hmm.. this property doesn't seem to exist on the target object
 ```
 
 書き換えても同じになることが確認できた！
+
+## まとめ
+- プロキシはオブジェクトの振る舞いを制御するための強力な手段
+- バリデーション, 通知, デバッグなど様々なユースケース
+- しかし使いすぎたり`handler`メソッドを呼び出すたびに思い処理を実行するとパフォーマンスに悪影響をもたらす可能性。
